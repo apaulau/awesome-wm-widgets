@@ -64,14 +64,14 @@ local function create_process_header(params)
         create_textbox{markup = '<b>PID</b>'},
         create_textbox{markup = '<b>Name</b>'},
         {
-            create_textbox{markup = '<b>%CPU</b>'},
-            create_textbox{markup = '<b>%MEM</b>'},
-            params.with_action_column and create_textbox{forced_width = 20} or nil,
+            create_textbox{markup = '<b>%CPU</b>', forced_width = 100},
+            create_textbox{markup = '<b>%MEM</b>', forced_width = 100},
+            params.with_action_column and create_textbox{forced_width = 50} or nil,
             layout = wibox.layout.align.horizontal
         },
         layout  = wibox.layout.ratio.horizontal
     }
-    res:ajust_ratio(2, 0.2, 0.47, 0.33)
+    res:ajust_ratio(2, 0.2, 0.47, 1.33)
 
     return res
 end
@@ -117,7 +117,7 @@ local function worker(user_args)
         shape = gears.shape.rounded_rect,
         border_width = 1,
         border_color = beautiful.bg_normal,
-        maximum_width = 300,
+        maximum_width = 700,
         offset = { y = 5 },
         widget = {}
     }
@@ -182,7 +182,7 @@ local function worker(user_args)
                         max_value = 100,
                         value = diff_usage,
                         forced_height = 20,
-                        forced_width = 150,
+                        forced_width = 450,
                         paddings = 1,
                         margins = 4,
                         border_width = 1,
@@ -216,8 +216,8 @@ local function worker(user_args)
                         create_textbox{text = pid},
                         create_textbox{text = comm},
                         {
-                            create_textbox{text = cpu, align = 'center'},
-                            create_textbox{text = mem, align = 'center'},
+                            create_textbox{text = cpu, align = 'center', forced_width = 100},
+                            create_textbox{text = mem, align = 'center', forced_width = 100},
                             kill_proccess_button,
                             layout = wibox.layout.fixed.horizontal
                         },

@@ -77,7 +77,7 @@ local popup = awful.popup{
     shape = gears.shape.rounded_rect,
     border_width = 1,
     border_color = beautiful.bg_focus,
-    maximum_width = 400,
+    maximum_width = 700,
     offset = { y = 5 },
     widget = {}
 }
@@ -158,7 +158,7 @@ local function worker(user_args)
                 {
                     markup = '<span size="large" font_weight="bold" color="#ffffff">ToDo</span>',
                     align = 'center',
-                    forced_width = 350, -- for horizontal alignment
+                    forced_width = 550, -- for horizontal alignment
                     forced_height = 40,
                     widget = wibox.widget.textbox
                 },
